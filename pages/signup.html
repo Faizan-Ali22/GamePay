@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign up for GamePay - Create your account and start buying legitimate game copies.">
+  <title>GamePay | Sign Up</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .signup-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .signup-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .signup-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4) blur(2px);
+    }
+
+    .signup-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(74, 108, 247, 0.15), rgba(123, 47, 242, 0.15));
+    }
+
+    .signup-container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 900px;
+      width: 90%;
+      min-height: 600px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .signup-form-side {
+      background: #ffffff;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .signup-image-side {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .signup-image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .signup-image-side::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(74, 108, 247, 0.3), rgba(123, 47, 242, 0.3));
+    }
+
+    .signup-logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      font-style: italic;
+      background: linear-gradient(135deg, #4A6CF7, #7B2FF2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .signup-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+
+    .signup-subheading {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #1a1a2e;
+      background: #ffffff;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      outline: none;
+    }
+
+    .form-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .form-input:focus {
+      border-color: #4A6CF7;
+      box-shadow: 0 0 0 4px rgba(74, 108, 247, 0.1);
+    }
+
+    .terms-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .terms-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #4A6CF7;
+      cursor: pointer;
+    }
+
+    .terms-group label {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #4A6CF7, #7B2FF2);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .signup-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(74, 108, 247, 0.4);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 20px 0;
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e5e7eb;
+    }
+
+    .google-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #7B2FF2, #E040FB);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .google-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(123, 47, 242, 0.4);
+    }
+
+    .google-icon {
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #4285F4;
+    }
+
+    .login-link-text {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .login-link-text a {
+      color: #1a1a2e;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .login-link-text a:hover {
+      color: #4A6CF7;
+    }
+
+    @media (max-width: 768px) {
+      .signup-container {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+      }
+
+      .signup-image-side {
+        display: none;
+      }
+
+      .signup-form-side {
+        padding: 36px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-page">
+    <div class="signup-bg">
+      <img src="../images/cyberpunk_cover_1785590632155.jpg" alt="Gaming Background">
+    </div>
+
+    <div class="signup-container">
+      <div class="signup-form-side">
+        <div class="signup-logo">GamePay</div>
+        <h1 class="signup-heading">Sign Up and Dive In!</h1>
+        <p class="signup-subheading">Unlock New Adventures</p>
+
+        <form id="signup-form">
+          <div class="form-group">
+            <input type="text" class="form-input" placeholder="Email or username" required>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-input" placeholder="Password" required>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-input" placeholder="Confirm Password" required>
+          </div>
+          <div class="terms-group">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">Agree to our Terms and Conditions</label>
+          </div>
+          <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+
+        <div class="divider">Or</div>
+
+        <button class="google-btn" type="button">
+          <span class="google-icon">G</span>
+          Sign Up With Google
+        </button>
+
+        <p class="login-link-text">Already have an account? <a href="../index.html">Log in</a></p>
+      </div>
+
+      <div class="signup-image-side">
+        <img src="../images/god_of_war_cover_1785590695449.jpg" alt="Gamer">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const passwords = document.querySelectorAll('input[type="password"]');
+      if (passwords[0].value !== passwords[1].value) {
+        alert('Passwords do not match!');
+        return;
+      }
+      alert('Account created successfully! Welcome to GamePay! 🎮');
+      window.location.href = '../index.html';
+    });
+  </script>
+</body>
+</html>
