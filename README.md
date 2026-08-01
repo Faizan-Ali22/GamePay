@@ -189,7 +189,7 @@ This project is developed for educational and academic purposes.
 
 **Faizan Ali**
 
-Computer Science Student | Full-Stack Web Developer
+Computer Game Development Student | Full-Stack Web Developer/Game Developer/Technical 3D Artist
 
 ---
 
